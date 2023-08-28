@@ -1,16 +1,11 @@
 <script>
 	import { page } from '$app/stores'
-	import beerSteinWhite from '$lib/images/beer-stein-white.svg'
-	import beerSteinYellow from '$lib/images/beer-stein-yellow.svg'
-    import houseWhite from '$lib/images/house-white.svg'
-    import houseYellow from '$lib/images/house-yellow.svg'
-    import userWhite from '$lib/images/user-white.svg'
-    import userYellow from '$lib/images/user-yellow.svg'
+	import Icon from './icon.svelte'
 
 	let links = [
-		{ href: '/', src: houseWhite, srcSelected: houseYellow },
-		{ href: '/game', src: beerSteinWhite, srcSelected: beerSteinYellow },
-		{ href: '/user', src: userWhite, srcSelected: userYellow }
+		{ href: '/',  icon: 'home' },
+		{ href: '/game',  icon: 'beer' },
+		{ href: '/user',  icon: 'user' }
 	]
 </script>
 
@@ -21,7 +16,7 @@
 			class={`text-warning ${$page.url.pathname === link.href ? 'active' : ''}`}
 			aria-current={$page.url.pathname === link.href}
 		>
-			<img src={$page.url.pathname === link.href ? link.srcSelected : link.src} alt="SvelteKit" />
+		<Icon id={link.icon} fill={$page.url.pathname === link.href ? '#ffc009' : '#fff'}/>
 		</a>
 	{/each}
 </div>
