@@ -38,6 +38,7 @@
 	const reset = () => {
 		timeSec = 0
 		timeMin = 0
+		shots = 0
 		state = STATE.NEW
 		clearInterval(interval)
 	}
